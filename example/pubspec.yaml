@@ -15,13 +15,16 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^0.1.0
-
+  easy_dialog: ^1.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
 
   # See https://github.com/flutter/flutter/wiki/Desktop-shells#fonts
   fonts:

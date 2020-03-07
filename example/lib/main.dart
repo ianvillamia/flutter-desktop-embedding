@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:example_flutter/mainbar.dart';
+import 'package:example_flutter/navbar.dart';
+import 'package:example_flutter/ui/home_view.dart';
+import 'package:example_flutter/ui/base_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,60 +26,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        // See https://github.com/flutter/flutter/wiki/Desktop-shells#fonts
-        fontFamily: 'Roboto',
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          // See https://github.com/flutter/flutter/wiki/Desktop-shells#fonts
+          fontFamily: 'Roboto',
+        ),
+       // home: HomeView());
+       home: Poo());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class Poo extends StatelessWidget {
+  const Poo({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+        return BaseWidget(builder: (context, sizingInformation) {
+ return Scaffold(
+      body: Stack(children: <Widget>[
+        Container(
+          width: width,
+          height: height,
+          color: Color.fromRGBO(216, 204, 204, 100),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+        Row(
+          children: <Widget>[
+            Container(
+              width: width * .25,
+              child: Navbar(width, height),
+            ),
+         MainBar(height,width)
+          ],
+        )
+      ]),
     );
+        });
+   
   }
 }
