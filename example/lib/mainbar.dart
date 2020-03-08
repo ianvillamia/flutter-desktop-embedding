@@ -80,11 +80,11 @@ class MainBar extends StatelessWidget {
   }
   buildDialog(BuildContext context){
    return EasyDialog(
-      closeButton: false,
+      // closeButton: false,
       cornerRadius: 10.0,
       fogOpacity: 0.1,
-      width: 280,
-      height: 220,
+      width: 500,
+      height: 500,
       title: Text(
         "Custom Easy Dialog Title",
         style: TextStyle(fontWeight: FontWeight.bold),
