@@ -12,9 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:example_flutter/navbar.dart';
-import 'package:example_flutter/Menu/reports.dart';
 import 'package:flutter/material.dart';
+import 'checker.dart';
+import 'Menu/Reports.dart';
 
 void main() {
   runApp(new MyApp());
@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Roboto',
         ),
        // home: HomeView());
-       home: Reports());
+     home: Scaffold(body: Checker()));
+     //  home: Reports());
   }
 }

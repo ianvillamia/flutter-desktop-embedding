@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:easy_dialog/easy_dialog.dart';
 import 'package:example_flutter/Shared/navbutton.dart';
+import 'package:example_flutter/Shared/navbar.dart';
+import 'package:example_flutter/Menu/reports.dart';
+import 'package:example_flutter/Menu/lessons.dart';
 
 class Users extends StatefulWidget {
   @override
@@ -32,70 +34,18 @@ class _UsersState extends State<Users> {
                 color: Colors.white,
                 child: Column(
                   children: <Widget>[
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: width * .05,
-                          height: height * .10,
-                          child: Center(
-                            child: Image(
-                              image: AssetImage('assets/logos.png'),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'Elements++',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold
-                          ),
-                        ),
-                      ],
-                    ),
-                    horizontalLine(),
-                    Container(
-                      height: height * .15,
-                      child: Padding(
-                        padding:  EdgeInsets.all(15),
-                        child: Container(
-                          child: Row(
-                            children: <Widget>[
-                              Image(image: AssetImage('assets/admin.png')),
-                              Container(
-                                height: queryData.size.height / 5,
-                                width: queryData.size.width / 8.5,
-                                  // width: (width * .2) * .8,
-                                  // height: height * .10,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                                      color: Colors.white),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(15),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          'David M. Grey',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold, fontSize: 10),
-                                        ),
-                                        Text('Project Manager'),
-                                      ],
-                                    ),
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
+                    NavBarDrawer(),
                     horizontalLine(),
                     SizedBox(height: 10),
                     Padding(
                       padding: EdgeInsets.all(10),
-                        child: Kahitano()
+                        child: Column(
+                          children: <Widget>[
+                            buttons(context, Colors.white,Colors.black,Offset(0, 0), 0, 'Reports', Icons.dashboard, Reports()),
+                            buttons(context, Colors.white,Colors.black,Offset(0, 0), 0,'Lessons', Icons.book, Lessons()),
+                            buttons(context, Colors.red,Colors.white,Offset(1, 1), 2,'Users', Icons.people, Users()),
+                          ],
+                        )
                       ),
                   ],
                 ),
